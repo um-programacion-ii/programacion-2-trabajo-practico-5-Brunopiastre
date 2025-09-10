@@ -1,24 +1,20 @@
 package com.example.empresa.service;
 
 import com.example.empresa.entity.Departamento;
-import com.example.empresa.repository.DepartamentoRepository;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
-public class DepartamentoService {
-    private final DepartamentoRepository repo;
-    public DepartamentoService(DepartamentoRepository repo){ this.repo = repo; }
+public interface DepartamentoService {
+    // Etapa 2
+    Departamento guardar(Departamento departamento);
+    Departamento buscarPorId(Long id);
+    List<Departamento> obtenerTodos();
+    Departamento actualizar(Long id, Departamento departamento);
+    void eliminar(Long id);
 
-    public List<Departamento> findAll(){ return repo.findAll(); }
-    public Departamento findById(Long id){ return repo.findById(id).orElseThrow(); }
-    public Departamento save(Departamento d){ return repo.save(d); }
-    public Departamento update(Long id, Departamento data){
-        Departamento d = findById(id);
-        d.setNombre(data.getNombre());
-        d.setDescripcion(data.getDescripcion());
-        return repo.save(d);
-    }
-    public void delete(Long id){ repo.deleteById(id); }
+    // Controllers
+    List<Departamento> findAll();
+    Departamento findById(Long id);
+    Departamento save(Departamento departamento);
+    Departamento update(Long id, Departamento departamento);
+    void delete(Long id);
 }

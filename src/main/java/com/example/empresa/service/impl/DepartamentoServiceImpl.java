@@ -4,8 +4,8 @@ import com.example.empresa.entity.Departamento;
 import com.example.empresa.exception.DepartamentoNoEncontradoException;
 import com.example.empresa.repository.DepartamentoRepository;
 import com.example.empresa.service.DepartamentoService;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,6 +19,7 @@ public class DepartamentoServiceImpl implements DepartamentoService {
         this.departamentoRepository = departamentoRepository;
     }
 
+    // Etapa 2 (español)
     @Override
     public Departamento guardar(Departamento departamento) {
         return departamentoRepository.save(departamento);
@@ -50,4 +51,20 @@ public class DepartamentoServiceImpl implements DepartamentoService {
                 .orElseThrow(() -> new DepartamentoNoEncontradoException("Departamento no encontrado con ID: " + id));
         departamentoRepository.delete(existente);
     }
+
+    // Controllers (delegan)
+    @Override
+    public List<Departamento> findAll() { return obtenerTodos(); }
+
+    @Override
+    public Departamento findById(Long id) { return buscarPorId(id); }
+
+    @Override
+    public Departamento save(Departamento d) { return guardar(d); }
+
+    @Override
+    public Departamento update(Long id, Departamento d) { return actualizar(id, d); }
+
+    @Override
+    public void delete(Long id) { eliminar(id); }
 }

@@ -4,8 +4,8 @@ import com.example.empresa.entity.Proyecto;
 import com.example.empresa.exception.ProyectoNoEncontradoException;
 import com.example.empresa.repository.ProyectoRepository;
 import com.example.empresa.service.ProyectoService;
-import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -20,6 +20,7 @@ public class ProyectoServiceImpl implements ProyectoService {
         this.proyectoRepository = proyectoRepository;
     }
 
+    // Etapa 2 (español)
     @Override
     public Proyecto guardar(Proyecto proyecto) {
         return proyectoRepository.save(proyecto);
@@ -60,4 +61,20 @@ public class ProyectoServiceImpl implements ProyectoService {
         LocalDate hoy = LocalDate.now();
         return proyectoRepository.findActivos(hoy);
     }
+
+    // Controllers (delegan)
+    @Override
+    public List<Proyecto> findAll() { return obtenerTodos(); }
+
+    @Override
+    public Proyecto findById(Long id) { return buscarPorId(id); }
+
+    @Override
+    public Proyecto save(Proyecto p) { return guardar(p); }
+
+    @Override
+    public Proyecto update(Long id, Proyecto p) { return actualizar(id, p); }
+
+    @Override
+    public void delete(Long id) { eliminar(id); }
 }
