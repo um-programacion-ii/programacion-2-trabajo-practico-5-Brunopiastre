@@ -1,6 +1,6 @@
 package com.example.empresa.controller;
 
-import com.example.empresa.model.Proyecto;
+import com.example.empresa.entity.Proyecto;
 import com.example.empresa.service.ProyectoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
