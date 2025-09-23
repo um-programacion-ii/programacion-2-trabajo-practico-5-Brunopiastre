@@ -1,4 +1,21 @@
 spring:
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  datasource:
+    url: jdbc:h2:mem:empresa;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+=======
+>>>>>>> origin/main
   profiles:
     active: dev
 
@@ -12,10 +29,25 @@ spring:
     driver-class-name: org.h2.Driver
     username: sa
     password:
+<<<<<<< HEAD
+=======
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
   h2:
     console:
       enabled: true
       path: /h2-console
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+server:
+  port: 8080
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.orm.jdbc.bind: trace
+=======
+>>>>>>> origin/main
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -61,3 +93,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
+<<<<<<< HEAD
+=======
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
