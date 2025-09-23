@@ -1,6 +1,6 @@
 package com.example.empresa.controller;
 
-import com.example.empresa.entity.Empleado;
+import com.example.empresa.model.Empleado;
 import com.example.empresa.service.EmpleadoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -54,8 +54,7 @@ public class EmpleadoController {
     }
 
     @GetMapping("/salario")
-    public List<Empleado> obtenerPorRangoSalario(@RequestParam BigDecimal min,
-                                                 @RequestParam BigDecimal max) {
+    public List<Empleado> obtenerPorRangoSalario(@RequestParam BigDecimal min, @RequestParam BigDecimal max) {
         return empleadoService.buscarPorRangoSalario(min, max);
     }
 }

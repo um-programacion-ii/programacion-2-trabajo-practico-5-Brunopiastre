@@ -2,6 +2,7 @@ package com.example.empresa.service;
 
 import com.example.empresa.entity.Departamento;
 import com.example.empresa.exception.DepartamentoNoEncontradoException;
+import com.example.empresa.exception.DepartamentoDuplicadoException;
 import com.example.empresa.repository.DepartamentoRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +19,14 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     }
 
     @Override
-    public Departamento guardar(Departamento dpto) { return repo.save(dpto); }
+    public Departamento guardar(Departamento dpto) {
+        if (repo.findByNombre(dpto.getNombre()).isPresent()) {
+            throw new DepartamentoDuplicadoException(
+                "El departamento '" + dpto.getNombre() + "' ya existe"
+            );
+        }
+        return repo.save(dpto);
+    }
 
     @Override
     public Departamento buscarPorId(Long id) {
@@ -33,18 +41,24 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     }
 
     @Override
-    public List<Departamento> obtenerTodos() { return repo.findAll(); }
+    public List<Departamento> obtenerTodos() {
+        return repo.findAll();
+    }
 
     @Override
     public Departamento actualizar(Long id, Departamento dpto) {
-        if (!repo.existsById(id)) throw new DepartamentoNoEncontradoException("Departamento no encontrado con ID: " + id);
+        if (!repo.existsById(id)) {
+            throw new DepartamentoNoEncontradoException("Departamento no encontrado con ID: " + id);
+        }
         dpto.setId(id);
         return repo.save(dpto);
     }
 
     @Override
     public void eliminar(Long id) {
-        if (!repo.existsById(id)) throw new DepartamentoNoEncontradoException("Departamento no encontrado con ID: " + id);
+        if (!repo.existsById(id)) {
+            throw new DepartamentoNoEncontradoException("Departamento no encontrado con ID: " + id);
+        }
         repo.deleteById(id);
     }
 }

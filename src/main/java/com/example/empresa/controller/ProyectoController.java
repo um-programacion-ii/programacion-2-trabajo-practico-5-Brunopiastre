@@ -1,17 +1,15 @@
 package com.example.empresa.controller;
 
-import com.example.empresa.entity.Proyecto;
+import com.example.empresa.model.Proyecto;
 import com.example.empresa.service.ProyectoService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/proyectos")
-@Validated
 public class ProyectoController {
 
     private final ProyectoService proyectoService;
@@ -28,11 +26,6 @@ public class ProyectoController {
     @GetMapping("/{id}")
     public Proyecto obtenerPorId(@PathVariable Long id) {
         return proyectoService.buscarPorId(id);
-    }
-
-    @GetMapping("/activos")
-    public List<Proyecto> obtenerActivos() {
-        return proyectoService.buscarActivos();
     }
 
     @PostMapping
