@@ -3,17 +3,25 @@ package com.example.empresa.controller;
 import com.example.empresa.entity.Departamento;
 import com.example.empresa.service.DepartamentoService;
 <<<<<<< HEAD
+import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+=======
+<<<<<<< HEAD
 import org.springframework.http.HttpStatus;
 =======
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+<<<<<<< HEAD
+@RequestMapping("/api/departamentos")
+=======
 <<<<<<< HEAD
 @RequestMapping("/departamentos")
 public class DepartamentoController {
@@ -30,6 +38,7 @@ public class DepartamentoController {
 =======
 @RequestMapping("/api/departamentos")
 @Validated
+>>>>>>> origin/main
 public class DepartamentoController {
 
     private final DepartamentoService departamentoService;
@@ -48,6 +57,17 @@ public class DepartamentoController {
         return departamentoService.buscarPorId(id);
     }
 
+<<<<<<< HEAD
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Departamento crear(@Valid @RequestBody Departamento departamento) {
+        return departamentoService.guardar(departamento);
+    }
+
+    @PutMapping("/{id}")
+    public Departamento actualizar(@PathVariable Long id, @Valid @RequestBody Departamento departamento) {
+        return departamentoService.actualizar(id, departamento);
+=======
     @GetMapping("/nombre/{nombre}")
     public Departamento obtenerPorNombre(@PathVariable String nombre) {
         return departamentoService.buscarPorNombre(nombre);
@@ -62,6 +82,7 @@ public class DepartamentoController {
     @PutMapping("/{id}")
     public Departamento actualizar(@PathVariable Long id, @Valid @RequestBody Departamento dpto) {
         return departamentoService.actualizar(id, dpto);
+>>>>>>> origin/main
     }
 
     @DeleteMapping("/{id}")
@@ -69,5 +90,8 @@ public class DepartamentoController {
     public void eliminar(@PathVariable Long id) {
         departamentoService.eliminar(id);
     }
+<<<<<<< HEAD
+=======
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
 }

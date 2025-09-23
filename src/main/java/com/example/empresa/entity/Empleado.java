@@ -1,5 +1,12 @@
 package com.example.empresa.entity;
 <<<<<<< HEAD
+
+import jakarta.persistence.*;
+import lombok.*;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.math.BigDecimal;
+=======
+<<<<<<< HEAD
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -9,20 +16,49 @@ import jakarta.persistence.*;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
 <<<<<<< HEAD
+@Table(name = "empleados")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Empleado {
+=======
+<<<<<<< HEAD
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 @Table(name = "empleados")
 public class Empleado {
 
+>>>>>>> origin/main
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
+    @Column(nullable = false, length = 100)
+    private String nombre;
+
+    @Column(nullable = false, length = 100)
+    private String apellido;
+
+    @Column(unique = true, nullable = false)
+    private String email;
+
+    @Column(name = "fecha_contratacion", nullable = false)
+    private LocalDate fechaContratacion;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal salario;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "departamento_id")
+    @JsonBackReference // 👈 evita loop con Departamento
+=======
     private String nombre;
     private String apellido;
     private String email;
@@ -89,6 +125,7 @@ public class Empleado {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="departamento_id")
+>>>>>>> origin/main
     private Departamento departamento;
 
     @ManyToMany
@@ -98,6 +135,8 @@ public class Empleado {
         inverseJoinColumns = @JoinColumn(name = "proyecto_id")
     )
     private Set<Proyecto> proyectos = new HashSet<>();
+<<<<<<< HEAD
+=======
 
     // Getters/Setters
     public Long getId() { return id; }
@@ -117,4 +156,5 @@ public class Empleado {
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
     public Set<Proyecto> getProyectos() { return proyectos; }
     public void setProyectos(Set<Proyecto> proyectos) { this.proyectos = proyectos; }
+>>>>>>> origin/main
 }

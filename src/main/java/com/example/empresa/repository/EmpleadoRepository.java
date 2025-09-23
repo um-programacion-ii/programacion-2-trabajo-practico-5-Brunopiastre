@@ -1,6 +1,8 @@
 package com.example.empresa.repository;
 
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
 import com.example.empresa.entity.Departamento;
 import com.example.empresa.entity.Empleado;
 import java.math.BigDecimal;
@@ -17,6 +19,7 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     List<Empleado> findByDepartamento(Departamento departamento);
     List<Empleado> findBySalarioBetween(BigDecimal salarioMin, BigDecimal salarioMax);
 =======
+>>>>>>> origin/main
 import com.example.empresa.entity.*;
 import org.springframework.data.jpa.repository.*;
 import org.springframework.data.repository.query.Param;
@@ -29,7 +32,10 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
     Optional<Empleado> findByEmail(String email);
     List<Empleado> findByDepartamento(Departamento departamento);
     List<Empleado> findBySalarioBetween(BigDecimal min, BigDecimal max);
+<<<<<<< HEAD
+=======
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
     List<Empleado> findByFechaContratacionAfter(LocalDate fecha);
 
     @Query("SELECT e FROM Empleado e WHERE e.departamento.nombre = :nombreDepartamento")

@@ -5,14 +5,20 @@ import java.util.List;
 
 public interface ProyectoService {
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
     // Etapa 2
 =======
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
     Proyecto guardar(Proyecto proyecto);
     Proyecto buscarPorId(Long id);
     List<Proyecto> obtenerTodos();
     Proyecto actualizar(Long id, Proyecto proyecto);
     void eliminar(Long id);
+<<<<<<< HEAD
+    List<Proyecto> buscarActivos();
+=======
 <<<<<<< HEAD
     List<Proyecto> obtenerActivos();
 
@@ -25,4 +31,5 @@ public interface ProyectoService {
 =======
     List<Proyecto> buscarActivos();
 >>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
 }
