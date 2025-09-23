@@ -2,6 +2,35 @@ package com.example.empresa.controller;
 
 import com.example.empresa.entity.Empleado;
 import com.example.empresa.service.EmpleadoService;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/empleados")
+public class EmpleadoController {
+    private final EmpleadoService service;
+    public EmpleadoController(EmpleadoService service){ this.service = service; }
+
+    @GetMapping
+    public List<Empleado> listar(){ return service.findAll(); }
+
+    @GetMapping("/{id}")
+    public Empleado obtener(@PathVariable Long id){ return service.findById(id); }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Empleado crear(@RequestBody Empleado e){ return service.save(e); }
+
+    @PutMapping("/{id}")
+    public Empleado actualizar(@PathVariable Long id, @RequestBody Empleado e){
+        return service.update(id, e);
+=======
+>>>>>>> origin/main
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -40,10 +69,25 @@ public class EmpleadoController {
     @PutMapping("/{id}")
     public Empleado actualizar(@PathVariable Long id, @Valid @RequestBody Empleado empleado) {
         return empleadoService.actualizar(id, empleado);
+<<<<<<< HEAD
+=======
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    public void borrar(@PathVariable Long id){ service.delete(id); }
+
+    // Asignar empleado a proyecto (ManyToMany)
+    @PostMapping("/{empleadoId}/proyectos/{proyectoId}")
+    public Empleado asignarProyecto(@PathVariable Long empleadoId, @PathVariable Long proyectoId){
+        return service.asignarProyecto(empleadoId, proyectoId);
+=======
+>>>>>>> origin/main
     public void eliminar(@PathVariable Long id) {
         empleadoService.eliminar(id);
     }
@@ -54,7 +98,14 @@ public class EmpleadoController {
     }
 
     @GetMapping("/salario")
+<<<<<<< HEAD
     public List<Empleado> obtenerPorRangoSalario(@RequestParam BigDecimal min, @RequestParam BigDecimal max) {
         return empleadoService.buscarPorRangoSalario(min, max);
+=======
+    public List<Empleado> obtenerPorRangoSalario(@RequestParam BigDecimal min,
+                                                 @RequestParam BigDecimal max) {
+        return empleadoService.buscarPorRangoSalario(min, max);
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
     }
 }

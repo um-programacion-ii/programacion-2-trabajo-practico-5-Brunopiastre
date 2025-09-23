@@ -2,12 +2,24 @@ package com.example.empresa.repository;
 
 import com.example.empresa.entity.Departamento;
 import com.example.empresa.entity.Empleado;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+=======
+>>>>>>> origin/main
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+<<<<<<< HEAD
+=======
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -17,6 +29,37 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+class EmpleadoRepositoryTest {
+
+    @Autowired EmpleadoRepository empleadoRepository;
+    @Autowired DepartamentoRepository departamentoRepository;
+
+    @Test
+    void guardaYBuscaPorEmail_yPorNombreDepartamento() {
+        Departamento it = new Departamento();
+        it.setNombre("IT");
+        it.setDescripcion("Tecnología");
+        it = departamentoRepository.save(it);
+
+        Empleado e = new Empleado();
+        e.setNombre("Juan");
+        e.setApellido("Pérez");
+        e.setEmail("juan.perez@empresa.com");
+        e.setFechaContratacion(LocalDate.now());
+        e.setSalario(50000.00);
+        e.setDepartamento(it);
+        empleadoRepository.save(e);
+
+        Optional<Empleado> porEmail = empleadoRepository.findByEmail("juan.perez@empresa.com");
+        assertThat(porEmail).isPresent();
+
+        List<Empleado> porDepto = empleadoRepository.findByNombreDepartamento("IT");
+        assertThat(porDepto).extracting("email").contains("juan.perez@empresa.com");
+=======
+>>>>>>> origin/main
 @ActiveProfiles("test")
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 class EmpleadoRepositoryTest {
@@ -67,5 +110,9 @@ class EmpleadoRepositoryTest {
 
         List<Empleado> lista = empleadoRepository.findByNombreDepartamento("RRHH");
         assertThat(lista).hasSize(2);
+<<<<<<< HEAD
+=======
+>>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
+>>>>>>> origin/main
     }
 }
