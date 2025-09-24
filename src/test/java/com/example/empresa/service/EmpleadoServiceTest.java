@@ -5,11 +5,11 @@ import com.example.empresa.entity.Empleado;
 import com.example.empresa.exception.EmpleadoNoEncontradoException;
 import com.example.empresa.repository.DepartamentoRepository;
 import com.example.empresa.repository.EmpleadoRepository;
+import com.example.empresa.service.impl.EmpleadoServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -26,7 +26,7 @@ class EmpleadoServiceTest {
     void setUp() {
         empleadoRepository = mock(EmpleadoRepository.class);
         departamentoRepository = mock(DepartamentoRepository.class);
-        empleadoService = new EmpleadoServiceImpl(empleadoRepository, departamentoRepository);
+        empleadoService = new EmpleadoServiceImpl(empleadoRepository, departamentoRepository, null);
     }
 
     @Test
@@ -36,7 +36,7 @@ class EmpleadoServiceTest {
         e.setApellido("García");
         e.setEmail("ana@empresa.com");
         e.setFechaContratacion(LocalDate.now());
-        e.setSalario(new BigDecimal("10000"));
+        e.setSalario(10000.0);
 
         when(empleadoRepository.findByEmail("ana@empresa.com")).thenReturn(Optional.empty());
         when(empleadoRepository.save(any(Empleado.class))).thenAnswer(inv -> {

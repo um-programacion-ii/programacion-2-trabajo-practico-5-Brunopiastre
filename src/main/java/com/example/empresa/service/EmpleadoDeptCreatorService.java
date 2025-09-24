@@ -27,7 +27,9 @@ public class EmpleadoDeptCreatorService {
         e.setApellido(req.getApellido());
         e.setEmail(req.getEmail());
         e.setFechaContratacion(req.getFechaContratacion());
-        e.setSalario(req.getSalario());
+        if (req.getSalario() != null) {
+            e.setSalario(req.getSalario().doubleValue());
+        }
 
         if (req.getDepartamentoId() != null) {
             Departamento dep = departamentoRepository.findById(req.getDepartamentoId())

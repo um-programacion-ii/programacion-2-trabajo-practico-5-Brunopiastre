@@ -41,7 +41,7 @@ class EmpleadoServiceIntegrationTest {
         empleado.setApellido("Pérez");
         empleado.setEmail("juan.perez@empresa.com");
         empleado.setFechaContratacion(LocalDate.now());
-        empleado.setSalario(new BigDecimal("50000.00"));
+        empleado.setSalario(50000.00);
         empleado.setDepartamento(departamento);
 
         Empleado guardado = empleadoService.guardar(empleado);

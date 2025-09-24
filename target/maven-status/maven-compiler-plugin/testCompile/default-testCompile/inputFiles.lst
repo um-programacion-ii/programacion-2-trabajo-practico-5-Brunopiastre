@@ -1,2 +1,5 @@
-/home/bruno/Escritorio/Progrmacion 2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/repository/EmpleadoRepositoryTest.java
-/home/bruno/Escritorio/Progrmacion 2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/EmpresaApplicationTests.java
+/home/bruno/Escritorio/Progrmacion2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/service/EmpleadoServiceIntegrationTest.java
+/home/bruno/Escritorio/Progrmacion2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/repository/EmpleadoRepositoryTest.java
+/home/bruno/Escritorio/Progrmacion2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/EmpresaApplicationTests.java
+/home/bruno/Escritorio/Progrmacion2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/controller/EmpleadoControllerTest.java
+/home/bruno/Escritorio/Progrmacion2/tp5/programacion-2-trabajo-practico-5-Brunopiastre/src/test/java/com/example/empresa/service/EmpleadoServiceTest.java
