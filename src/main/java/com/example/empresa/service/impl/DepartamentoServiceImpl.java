@@ -32,6 +32,12 @@ public class DepartamentoServiceImpl implements DepartamentoService {
     }
 
     @Override
+    public Departamento buscarPorNombre(String nombre) {
+        return departamentoRepository.findByNombre(nombre)
+                .orElseThrow(() -> new DepartamentoNoEncontradoException("Departamento no encontrado con nombre: " + nombre));
+    }
+
+    @Override
     public List<Departamento> obtenerTodos() {
         return departamentoRepository.findAll();
     }

@@ -15,6 +15,7 @@ import java.time.LocalDate;
 import java.util.Collections;
 
 import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -39,7 +40,7 @@ class EmpleadoControllerTest {
         empleado.setApellido("Pérez");
         empleado.setEmail("juan.perez@empresa.com");
         empleado.setFechaContratacion(LocalDate.now());
-        empleado.setSalario(new BigDecimal("50000.00"));
+        empleado.setSalario(50000.00);
 
         when(empleadoService.obtenerTodos()).thenReturn(Collections.singletonList(empleado));
 
@@ -56,9 +57,9 @@ class EmpleadoControllerTest {
         empleado.setApellido("Pérez");
         empleado.setEmail("juan.perez@empresa.com");
         empleado.setFechaContratacion(LocalDate.now());
-        empleado.setSalario(new BigDecimal("50000.00"));
+        empleado.setSalario(50000.00);
 
-        when(empleadoService.guardar(empleado)).thenReturn(empleado);
+        when(empleadoService.guardar(any(Empleado.class))).thenReturn(empleado);
 
         mockMvc.perform(post("/api/empleados")
                         .contentType(MediaType.APPLICATION_JSON)

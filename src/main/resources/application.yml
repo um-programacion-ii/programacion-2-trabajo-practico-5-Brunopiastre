@@ -1,21 +1,4 @@
 spring:
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  datasource:
-    url: jdbc:h2:mem:empresa;MODE=MySQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-  jpa:
-    hibernate:
-      ddl-auto: update
-    open-in-view: false
-    properties:
-      hibernate:
-        format_sql: true
-=======
->>>>>>> origin/main
   profiles:
     active: dev
 
@@ -24,30 +7,18 @@ spring:
   config:
     activate:
       on-profile: dev
+  docker:
+    compose:
+      enabled: false
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DATABASE_TO_UPPER=false
     driver-class-name: org.h2.Driver
     username: sa
     password:
-<<<<<<< HEAD
-=======
->>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
->>>>>>> origin/main
   h2:
     console:
       enabled: true
       path: /h2-console
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-server:
-  port: 8080
-logging:
-  level:
-    org.hibernate.SQL: debug
-    org.hibernate.orm.jdbc.bind: trace
-=======
->>>>>>> origin/main
   jpa:
     hibernate:
       ddl-auto: create-drop
@@ -61,6 +32,9 @@ spring:
   config:
     activate:
       on-profile: mysql
+  docker:
+    compose:
+      enabled: false
   datasource:
     url: jdbc:mysql://localhost:3306/empleados_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -80,6 +54,9 @@ spring:
   config:
     activate:
       on-profile: postgres
+  docker:
+    compose:
+      enabled: false
   datasource:
     url: jdbc:postgresql://localhost:5432/empleados_db
     driver-class-name: org.postgresql.Driver
@@ -93,7 +70,3 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-<<<<<<< HEAD
-=======
->>>>>>> be1df26 (fix: corregida clase main y nombres de controllers para compilar correctamente)
->>>>>>> origin/main

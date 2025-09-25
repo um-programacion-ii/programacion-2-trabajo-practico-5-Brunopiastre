@@ -1,2 +1,5 @@
 com/example/empresa/repository/EmpleadoRepositoryTest.class
 com/example/empresa/EmpresaApplicationTests.class
+com/example/empresa/controller/EmpleadoControllerTest.class
+com/example/empresa/service/EmpleadoServiceIntegrationTest.class
+com/example/empresa/service/EmpleadoServiceTest.class
